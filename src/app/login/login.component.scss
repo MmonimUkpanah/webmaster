@@ -1,0 +1,70 @@
+
+body{
+    background-image: linear-gradient(#D4408E,blue);
+    height: 100vh;
+}
+.formdiv{
+    width: 30%;
+    margin-top:5rem;
+    margin: auto;
+    border: 1px solid grey;
+    text-align: center;
+    padding: 1rem 1rem;
+    background: white;
+    border-radius: 10px;
+    
+}
+.formdiv input{
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid grey;
+    background: #e5e5e5;
+}
+.formdiv h2{
+    margin-bottom: 1rem;
+    font-size: 35px;
+}
+.formdiv span{
+    display: block;
+
+}
+.formdiv button{
+    background:#D4408E ;
+    color: white;
+    padding: 5px 2rem;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+.formdiv span{
+    color: grey;
+}
+
+@media(max-width:567px){
+    .formdiv{
+        width: 95%;
+        margin: auto;
+        border: 1px solid grey;
+        text-align: center;
+        padding: 1rem 1rem;
+        background: white;
+        border-radius: 10px;
+        
+    }
+}
+
+@media(min-width:568px) and (max-width:768px){
+    .formdiv{
+        width: 50%;
+        margin: auto;
+        border: 1px solid grey;
+        text-align: center;
+        padding: 1rem 1rem;
+        background: white;
+        border-radius: 10px;
+        
+    }
+}
