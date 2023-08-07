@@ -1,16 +1,23 @@
 <body>
     <div>
         <div style="padding:5rem"></div>
-        <div class="formdiv">
+        <form [formGroup]="loginForm" class="formdiv">
             <div>
                 <h2>LOGIN</h2>
-                <input type="email" name="" id="" placeholder="Email">
-                <input type="password" name="" id="" placeholder="Password">
-                <button (click)="routeToDashboard()">LOGIN</button>
+                <input type="email" placeholder="Email" formControlName="email">
+                <span *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.touched || loginForm.get('email')?.dirty)">
+                    <small  id="text-red" *ngIf="this.loginForm.get('email')?.errors?.['required']">User's name is required!</small>
+                    <small  id="text-red" *ngIf="this.loginForm.get('email')?.errors?.['email']">Please input a valid email!</small>
+                  </span>
+                <input placeholder="Password" formControlName="password">
+                <span *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)">
+                    <small  id="text-red" *ngIf="this.loginForm.get('password')?.errors?.['required']">Password is required!</small>
+                  </span>
+                <button (click)="loginUser()">LOGIN</button>
                 <span>Reset Password</span>
                 <span>Sign Up</span>
             </div>
-        </div>
+        </form>
     </div>
     
 </body>

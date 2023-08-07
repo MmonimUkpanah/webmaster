@@ -1,0 +1,32 @@
+.dash1{
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 40px;
+}
+.dash2{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 5rem;
+}
+.dash2 button{
+    background-color: rgb(0, 0, 168);
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 89%;
+    margin-left: 5rem;
+    margin-right: 5rem ;
+  }
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

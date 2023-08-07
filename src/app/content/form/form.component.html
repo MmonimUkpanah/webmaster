@@ -1,1 +1,36 @@
-<p>form works!</p>
+<body>
+    <div>
+        <div style="padding:2rem"></div>
+        <div class="formdiv">
+            <div>
+                <form action="submit" [formGroup]="userForm" (ngSubmit)="submit()">
+                    <h2>Kindly fill in your details</h2>
+                    <input type="text" id="name" placeholder="Please input your Name" formControlName="name">
+                    <span *ngIf="userForm.get('name')?.invalid && (userForm.get('name')?.touched || userForm.get('name')?.dirty)">
+                    <small  id="text-red" *ngIf="this.userForm.get('name')?.errors?.['required']">User's name is required!</small>
+                    <small  id="text-red" *ngIf="this.userForm.get('name')?.errors?.['pattern']">Only Alphabets are required!</small>
+                    </span>
+                    <input type="text" id="accountNum" placeholder="Please input your Account Number" formControlName="account">
+                    <br>
+                    <span *ngIf="userForm.get('account')?.invalid && (userForm.get('account')?.touched || userForm.get('account')?.dirty)">
+                    <small  id="text-red" *ngIf="this.userForm.get('account')?.errors?.['required']">Account Number is required!</small>
+                    <small  id="text-red" *ngIf="this.userForm.get('account')?.errors?.['pattern']">Only Numbers are required!</small>
+                    <small  id="text-red" *ngIf="this.userForm.get('account')?.errors?.['minlength']">Account Number must be at least 10 digits!</small>
+                    <small  id="text-red" *ngIf="this.userForm.get('account')?.errors?.['maxlength']">Account Number must be at most 10 digits!</small>
+                    </span>
+                    <div class="radio">
+                        <div>
+                            <label for="gender">Male</label><input type="radio" name="gender" id="male" value="Male" formControlName="gender">
+                        </div>
+                        <div>
+                            <label for="gender">Female</label><input type="radio" name="gender" id="female" value="Female" formControlName="gender">
+                        </div>                      
+                    </div>
+                    <button type="submit" (click)="submit()" [disabled]="!userForm.valid">SUBMIT</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+

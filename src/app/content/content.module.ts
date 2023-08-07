@@ -5,17 +5,22 @@ import { ContentRoutingModule } from './content-routing.module';
 import { ContentComponent } from './content.component';
 import { FormComponent } from './form/form.component';
 import { TableComponent } from './table/table.component';
-
+import { ProfileComponent } from './profile/profile.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     ContentComponent,
     FormComponent,
-    TableComponent
+    TableComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
-    ContentRoutingModule
+    ContentRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ContentModule { }

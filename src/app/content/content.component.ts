@@ -1,10 +1,83 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { User, UserObject } from './models/user';
+import { ServicesService } from './services/services.service';
+import { Subscription, debounceTime } from 'rxjs';
+import { LoginauthService } from '../login/services/loginauth.service';
 
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss']
 })
-export class ContentComponent {
+export class ContentComponent implements OnInit {
 
+  user: User[] = []
+  message: string = "Please enter your full name";
+  inputValue: string = "";
+  private userArray$!: Subscription;
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private service: ServicesService,
+    private authService: LoginauthService
+  ){}
+
+  editValues(item: UserObject){
+    this.service.setUserProfile(item);
+    this.router.navigate(["/content/form"],{relativeTo: this.route});
+  }
+
+  getUserDetails(){
+   this.user = this.service.getUserArray();
+  }
+
+  toFormPage(){
+    this.router.navigateByUrl("/content/form");
+  }
+  
+
+  getUserObservableArray(){
+    //
+
+    this.userArray$ = this.service.getUserObservable().pipe(debounceTime(2)).subscribe({
+      next: (elem: any) => {
+        this.user = elem;
+        console.log("values User Array from observable>>", this.user);
+      },
+      error: (err: any) => {
+        console.error("error from Observable>>", err);
+      },
+      complete: () => {
+        console.info("Angular Observable Implementation");
+      }
+    })
+  }
+
+  ngOnInit(): void {
+    this.getUserDetails();
+    this.getUserObservableArray();
+   }
+
+   routeToProfile(item: UserObject){
+    this.service.setUserProfile(item);
+    this.router.navigate(["/content/profile"],{relativeTo: this.route});
+  }
+
+  deleteValue(item: UserObject){
+    this.user.forEach((row: any, index: any) => {
+      if(item === row){
+        this.user.splice(index, 1);
+      }
+    })
+  }
+
+
+
+  
+  logout(){
+    this.authService.logoutUser();
+  }
+  
 }

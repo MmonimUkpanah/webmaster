@@ -1,1 +1,39 @@
-<p>content works!</p>
+<body>
+    <div>
+        <div class="dash1">
+            <h2>Dashboard</h2>
+        </div>
+        <div class="dash2">
+            <div>
+                <button (click)="toFormPage()">Form Page</button>
+            </div>
+            <div>
+                <button (click)="logout()">Logout</button>
+            </div>
+        </div>
+        <div>
+            <table>
+                <tr>
+                  <th>S/N</th>
+                  <th>Name</th>
+                  <th>Account Number</th>
+                  <th>Gender</th>
+                  <th>Actions</th>
+                </tr>
+                <tr *ngFor="let item of user; let id = index;">
+                    <td>{{id + 1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.account}}</td>
+                    <td>{{item.gender}}</td>
+                    <td>
+                        <button (click)="editValues(item)">Edit</button> &nbsp;&nbsp;
+                        <button (click)=" routeToProfile(item)">View</button> &nbsp;&nbsp;
+                        <button (click)="deleteValue(item)">Delete</button>
+                    </td>
+                </tr>
+                
+               
+              </table>
+        </div>
+    </div>
+</body>
