@@ -36,6 +36,6 @@ export class LoginauthService {
 
   public logoutUser(){
     localStorage.clear();
-    this.router.navigate(['/login/loginAuthentication'],{relativeTo: this.route});
+    this.router.navigate(['/login/login'],{relativeTo: this.route});
   }
 }
