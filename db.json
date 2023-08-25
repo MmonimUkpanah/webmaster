@@ -1,0 +1,40 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "customerName": "Mmonim First",
+      "dob": "12/05/1987",
+      "address": "Kilometer 55, Murtala Mohammed Road, Lagos",
+      "accountNumber": "8484848484",
+      "gender": "Male",
+      "accountStatus": "Active"
+    },
+    {
+      "id": 2,
+      "customerName": "Wendy Ajoke",
+      "dob": "19/09/1997",
+      "address": "Akoka, Yaba Lagos",
+      "accountNumber": "74943049494",
+      "gender": "Female",
+      "accountStatus": "Dormant"
+    },
+    {
+      "id": 3,
+      "customerName": "Fred Nwachukwu",
+      "dob": "10/05/1992",
+      "address": "51 Marina Road, Lagos Island",
+      "accountNumber": "3919939101",
+      "gender": "Male",
+      "accountStatus": "Active"
+    },
+    {
+      "id": 4,
+      "customerName": "Justin Nwaka",
+      "dob": "16/02/1892",
+      "address": "jfjsnfnfd",
+      "accountNumber": "83048493043",
+      "gender": "Female",
+      "accountStatus": "Dormant"
+    }
+  ]
+}

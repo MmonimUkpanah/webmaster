@@ -6,6 +6,7 @@ const routes: Routes = [
   {path: '',pathMatch: 'full', redirectTo: '/login/login'},
   { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) }, 
   { path: 'content', loadChildren: () => import('./content/content.module').then(m => m.ContentModule),canActivate:[familyGuard] },
+  { path: 'parent', loadChildren: () => import('./parent/parent.module').then(m => m.ParentModule),canActivate:[familyGuard] }
 
 ];
 

@@ -3,7 +3,7 @@
         <div style="padding:2rem"></div>
         <div class="formdiv">
             <div>
-                <form action="submit" [formGroup]="userForm">
+                <form action="submit" [formGroup]="userForm" (ngSubmit)="submit()">
                     <h2>Kindly fill in your details</h2>
                     <input type="text" id="name" placeholder="Please input your Name" formControlName="name">
                     <span *ngIf="userForm.get('name')?.invalid && (userForm.get('name')?.touched || userForm.get('name')?.dirty)">
@@ -33,4 +33,5 @@
     </div>
     
 </body>
+
 

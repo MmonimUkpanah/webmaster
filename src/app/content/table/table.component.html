@@ -1,1 +1,66 @@
-<p>table works!</p>
+<div>
+    <div class="container">
+        <h1>List of Customers</h1>
+        <br>
+        <br>
+        <div class="">
+            <div class="row">
+                <div class="col-md-6">
+                    <select [(ngModel)]="gender" (ngModelChange)="onChangeGender($event)" class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                      </select>
+                </div>
+                <div class="col-md-6">
+                    <input
+                    class="form-control"
+                    type="text"
+                    placeholder="search"
+                    [(ngModel)]="searchText"
+                />
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Customer's Name</th>
+                  <th scope="col">DOB</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Account Number</th>
+                  <th scope="col">Account Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor=" let customer of customers | paginate : { itemsPerPage: 5, currentPage: p } | search : searchText
+                 let id = index  "
+                 >
+
+                 "
+            <!-- let customer of customers
+              | paginate : { itemsPerPage: 4, currentPage: p }
+              | search : searchText
+          " -->
+                  <th scope="row">{{id + 1}}</th>
+                  <td>{{ customer.customerName }}</td>
+                  <td>{{ customer.dob }}</td>
+                  <td>{{ customer.address }}</td>
+                  <td>{{ customer.gender }}</td>
+                  <td>{{ customer.accountNumber }}</td>
+                  <td>{{ customer.accountStatus }}</td>
+                </tr>
+            
+              </tbody>
+        </table>
+        <div style="width: 30%;margin-left: auto;">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+        
+    </div>
+</div>
+
+
+
